@@ -1,0 +1,126 @@
+ @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+$main-colors: #8daee5;
+$default-font: 'arial', 'sans-serif';
+$special-font: 'pt sans', 'roboto', 'arial', 'sans-serif';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-size: 62.5%;
+    background-color: $main-colors;
+    font-family: $default-font;
+    color: #fff;
+}
+
+.wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start; // przy tym ustawieniu i
+    // min-height 100vh w miare dodawania kontentu
+    // do elementu będzie rósł
+    margin: 0 auto;
+    max-width: 1200px;
+    // height 100vh rozszerzy wszystkie elementy
+    // bo align-content domyślnie stretch
+    min-height: 100vh;
+    font-size: 2rem;
+    background-color: #fff;
+    box-shadow: 0, 0, 4px, 0, #000, inset;
+}
+
+.logo{
+    flex-basis: 100px;
+    // padding: 20px 0;
+    //width: 500px; // nie działa z flex-basis
+    // height: 80px;
+    background-color: cadetblue;
+    &__image {
+        display: block;
+        // przy display-block zajmuje wysokości tyle ile ma obrazek
+        // dlatego przy tworzeniu logo to trzeba uwzględnić
+        // tu ustawiłem height i w .logo też
+        width: 100%;
+        // height: 100%;
+    }
+}
+// jeśli kilka elementów w jednej lini na flex-grow: 1
+// to dzielą się przestrzenią po równo
+.search{
+    flex-grow: 1; // rośnij tyle ile przestrzeni
+    // ale może być też kontenerem
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__input{
+        flex-basis: 60%;
+        height: 40%;
+        margin-right: 30px;
+        padding: 0 10px;
+        font-size: 1.6rem;
+        border-radius: 3px;
+        &:focus{
+            outline: none;
+            box-shadow: 0, 0, 5px, 5px, #353333, inset;
+            font-weight: bold;
+        }
+    }
+    &__btn{
+        font-size: 1.6rem;
+        height: 40%;
+        padding: 0 15px;
+        border: 2px solid #222020;
+        border-radius: 5px;
+        background-color: #FFF;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: .3s;
+        &:hover{
+            background-color: #000;
+            color: #FFF;
+        }
+        &:focus{
+            outline: none;
+            font-weight: 700;
+        }
+    }
+}
+
+.settings{
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    &__icon{
+        margin: 0 10px;
+    color: #120f0f;
+        &--middle{
+            margin: 0 5px;
+        }
+    }
+}
+
+.menu{  
+    flex-basis: 100%; // z wrap 100% .wrapper
+    // jeśli no-wrap to 100% pozostałej przestrzeni
+    background-color: rgb(36, 86, 117);
+}
+
+.main-articles{
+    flex-basis: 100%;
+    background-color: rgb(34, 211, 217);
+}
+
+.article-list{
+    flex-basis: 100%;
+    background-color: rgb(147, 12, 111);
+}
+
+.footer{
+    flex-basis: 100%;
+    background-color: #000;
+}
